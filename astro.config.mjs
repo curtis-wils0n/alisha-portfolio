@@ -1,13 +1,23 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
-import tailwind from '@astrojs/tailwind';
-import react from '@astrojs/react';
+import tailwind from "@astrojs/tailwind";
+import react from "@astrojs/react";
+import netlify from "@astrojs/netlify";
+
 export default defineConfig({
-   vite: {
+  output: "server",
+  adapter: netlify({
+    edgeMiddleware: true
+  }),
+  vite: {
     plugins: [],
   },
   compressHTML: true,
-  integrations: [sitemap(), tailwind({
-    applyBaseStyles: false,
-  }), react()]
+  integrations: [
+    sitemap(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    react(),
+  ],
 });
