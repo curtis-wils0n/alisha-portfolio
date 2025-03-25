@@ -1,55 +1,121 @@
 ---
 // Define the array of projects directly in the frontmatter script.
-const otherprojects = [
+interface project {
+  url: string;
+  photo: string;
+  title: string;
+  description: string;
+  date: Date;
+}
+
+const communicationsProjects: project[] = [
   {
-    "url": "https://safelinkalberta.ca/national-coming-out-day-calgary-stories/",
-    "photo": "/articles/10-11-2024.png",
-    "title": "National Coming Out Day - Sharing Calgary's Stories - SafeLink",
-    "description": "Today, on National Coming Out Day, we celebrate the bravery of those who embrace their identities and live openly as part of the 2SLGBTQIA+ community. For many..."
+    url: "https://safelinkalberta.ca/national-coming-out-day-calgary-stories/",
+    photo: "/articles/10-11-2024.png",
+    title: "National Coming Out Day - Sharing Calgary's Stories - SafeLink",
+    description:
+      "Today, on National Coming Out Day, we celebrate the bravery of those who embrace their identities and live openly as part of the 2SLGBTQIA+ community. For many...",
+    date: new Date("2024-10-11"),
   },
   {
-    "url": "https://safelinkalberta.ca/honouring-our-elders-celebrating-aging-and-advocacy-on-international-pride-day/",
-    "photo": "/articles/06-28-2024.png",
-    "title": "Honouring Our Elders: Celebrating Aging and Advocacy on International Pride Day - SafeLink",
-    "description": "On International Pride Day, we celebrate the vibrant lives within the 2SLGBTQ+ community. This year, we spoke to Edgar, a recent graduate of SafeLink Alberta's practicum..."
+    url: "https://safelinkalberta.ca/honouring-our-elders-celebrating-aging-and-advocacy-on-international-pride-day/",
+    photo: "/articles/06-28-2024.png",
+    title:
+      "Honouring Our Elders: Celebrating Aging and Advocacy on International Pride Day - SafeLink",
+    description:
+      "On International Pride Day, we celebrate the vibrant lives within the 2SLGBTQ+ community. This year, we spoke to Edgar, a recent graduate of SafeLink Alberta's practicum...",
+    date: new Date("2024-06-28"),
+  },
+
+  {
+    url: "https://safelinkalberta.ca/sex-work-and-sex-trafficking-definitions-differences-and-the-need-for-human-rights/",
+    photo: "/articles/06-13-2024.png",
+    title:
+      "Sex Work and Sex Trafficking: Definitions, Differences, and the Need for Human Rights - SafeLink",
+    description:
+      "Sex work and sex trafficking are concepts that are often conflated despite being separate subjects. Due to this conflation, they can carry significant social, legal, and human...",
+    date: new Date("2024-06-13"),
   },
   {
-    "url": "https://safelinkalberta2022annualreport.my.canva.site/2023-2024-annual-report",
-    "photo": "/articles/06-15-2024.png",
-    "title": "SafeLink Alberta Annual Report",
-    "description": "Our mission at SafeLink Alberta is to reduce the harms associated with sexual activity and substance use by offering low-barrier, non-judgemental, and informed program..."
+    url: "https://safelinkalberta.ca/celebrating-international-sex-workers-day-a-conversation-with-our-shift-program-peer-support-worker/",
+    photo: "/articles/05-31-2024.png",
+    title:
+      "Celebrating International Sex Workers' Day: A Conversation with Our Shift Program Peer Support Worker - SafeLink",
+    description:
+      "As the world commemorates International Sex Workers' Day on June 2nd, a significant spotlight shines on the continued stigmatization of the sex work...",
+    date: new Date("2024-05-31"),
   },
   {
-    "url": "https://safelinkalberta.ca/sex-work-and-sex-trafficking-definitions-differences-and-the-need-for-human-rights/",
-    "photo": "/articles/06-13-2024.png",
-    "title": "Sex Work and Sex Trafficking: Definitions, Differences, and the Need for Human Rights - SafeLink",
-    "description": "Sex work and sex trafficking are concepts that are often conflated despite being separate subjects. Due to this conflation, they can carry significant social, legal, and human..."
+    url: "https://safelinkalberta.ca/statement-against-anti-trans-homophobic-and-anti-2slgbtqia-sentiment-in-alberta/",
+    photo: "/articles/template.png",
+    title:
+      "Statement Against Anti-Trans, Homophobic, and Anti-2SLGBTQIA+ Sentiment in Alberta - SafeLink",
+    description:
+      "SafeLink Alberta is an organization dedicated to supporting and advocating for 2SLGBTQIA+ individuals. We have been closely monitoring the recent increase in...",
+    date: new Date("2023-03-2023"),
   },
   {
-    "url": "https://safelinkalberta.ca/celebrating-international-sex-workers-day-a-conversation-with-our-shift-program-peer-support-worker/",
-    "photo": "/articles/05-31-2024.png",
-    "title": "Celebrating International Sex Workers' Day: A Conversation with Our Shift Program Peer Support Worker - SafeLink",
-    "description": "As the world commemorates International Sex Workers' Day on June 2nd, a significant spotlight shines on the continued stigmatization of the sex work..."
+    url: "https://safelinkalberta.ca/that-part-of-it-people-need-to-see-that-they-are-not-alone-monica-shares-her-story-in-support-of-community-voices/",
+    photo: "/articles/template.png",
+    title:
+      "“That part of it people need to see. That they are not alone.” - Monica shares her story in support of Community Voices. | SafeLink",
+    description:
+      "Monica is a spunky 45-year-old woman with two children who loves to sing karaoke. She has been living with HIV for over 25 years and is an active and much-loved member of...",
+    date: new Date("2019-11-10"),
   },
   {
-    "url": "https://safelinkalberta.ca/statement-against-anti-trans-homophobic-and-anti-2slgbtqia-sentiment-in-alberta/",
-    "photo": "/articles/template.png",
-    "title": "Statement Against Anti-Trans, Homophobic, and Anti-2SLGBTQIA+ Sentiment in Alberta - SafeLink",
-    "description": "SafeLink Alberta is an organization dedicated to supporting and advocating for 2SLGBTQIA+ individuals. We have been closely monitoring the recent increase in..."
-  },
-  {
-    "url": "https://media.journoportfolio.com/users/346524/uploads/201ba32a-9e82-4d5e-8079-4cd439e9c80e.pdf",
-    "photo": "/articles/template.png",
-    "title": "Donor Appeal Letter - 2021 Annual Campaign - SafeLink",
-    "description": "You help us achieve long-term outcomes for people at risk of HIV and other sexually transmitted and blood-borne infections (STBBI). Without you, we would not be able..."
-  },
-  {
-    "url": "https://safelinkalberta.ca/that-part-of-it-people-need-to-see-that-they-are-not-alone-monica-shares-her-story-in-support-of-community-voices/",
-    "photo": "/articles/template.png",
-    "title": "“That part of it people need to see. That they are not alone.” - Monica shares her story in support of Community Voices. | SafeLink",
-    "description": "Monica is a spunky 45-year-old woman with two children who loves to sing karaoke. She has been living with HIV for over 25 years and is an active and much-loved member of..."
+    url: "https://safelinkalberta.ca/black-history-month-a-conversation-with-mariam-lawal/",
+    photo: "/articles/02-19-2025.png",
+    title: "Black History Month: A Conversation with Miriam Lawal",
+    description:
+      "Black History Month is more than a time for reflection; it is a call to action. It is a moment to recognize our strength and celebrate Black communities’ resilience...",
+    date: new Date("2025-02-19"),
   },
   // Add more projects as needed...
+];
+
+const fundDevelopmentProjects: project[] = [
+  {
+    url: "https://media.journoportfolio.com/users/346524/uploads/201ba32a-9e82-4d5e-8079-4cd439e9c80e.pdf",
+    photo: "/articles/template.png",
+    title: "Donor Appeal Letter - 2021 Annual Campaign - SafeLink",
+    description:
+      "You help us achieve long-term outcomes for people at risk of HIV and other sexually transmitted and blood-borne infections (STBBI). Without you, we would not be able...",
+    date: new Date("2021"),
+  },
+  {
+    url: "https://safelinkalberta2022annualreport.my.canva.site/2023-2024-annual-report",
+    photo: "/articles/06-15-2024.png",
+    title: "SafeLink Alberta Annual Report",
+    description:
+      "Our mission at SafeLink Alberta is to reduce the harms associated with sexual activity and substance use by offering low-barrier, non-judgemental, and informed program...",
+    date: new Date("2024-06-15"),
+  },
+  {
+    url: "/files/Annual Campaign 2024 Launch.pdf",
+    photo: "/articles/template.png",
+    title: "Direct Response: SafeLink Alberta Annual Campaign 2024",
+    description:
+      "Today is Giving Tuesday, the Global Day of Giving. This holiday season, you can unbox more than just a gift—you can unbox hope, safety, comfort and dignity for...",
+    date: new Date("2024-12-01"),
+  },
+  {
+    url: "/files/Coming Out Day.pdf",
+    photo: "/articles/template.png",
+    title: "Direct Response: SafeLInk Alberta Coming Out Day 2024",
+    description:
+      "Today, on National Coming Out Day, we reflect on the bravery it takes to live authentically. Coming out is often a decisive step towards personal freedom, but for many...",
+    date: new Date("2024-10-11"),
+  },
+  {
+    url: "/files/Donor Newsletter_December.pdf",
+    photo: "/articles/template.png",
+    title:
+      "Donor Impact Report: SafeLink Alberta Donor Newsletter December 2024",
+    description:
+      "This quarterly report offers valuable insights into the direct impact your donation(s) have had in supporting our priority populations. Winter may be in full...",
+    date: new Date("2024-12-01"),
+  },
 ];
 
 // Function to calculate `data-aos-duration` based on index
@@ -73,40 +139,87 @@ function calculateAosDuration(index) {
         data-aos="fade-up"
         data-aos-duration="1500"
       >
-        <span>My</span>
-        <span class="font-bold">articles</span>
+        <span class="font-bold">Communications</span>
+        <span>materials</span>
       </h3>
     </div>
-
+    <ul
+      class="mx-auto grid grid-cols-1 sm:grid-cols-2 text-secondary md:grid-cols-3 lg:grid-cols-4 items-start gap-6 mt-8"
+      role="list"
+    >
+      {
+        communicationsProjects
+          .sort((a: project, b: project) => {
+            return b.date.getTime() - a.date.getTime();
+          })
+          .map((project, index) => (
+            <li
+              class="flow-root h-full"
+              data-aos="fade-up"
+              data-aos-duration={calculateAosDuration(index % 4)}
+            >
+              <a href={project.url}>
+                <div class="h-full flex flex-col justify-between">
+                  <div>
+                    <img class="lg:mb-8 xl:mb-0 lg:pb-8" src={project.photo} />
+                    <p class="italic shrink-0">{project.title}</p>
+                    <p class="text-base mt-3 leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+                  <div>
+                    <p class="mt-3 text-base font-semibold">
+                      Learn more &nbsp; ↗
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))
+      }
+    </ul>
+    <div class="h-0.5 bg-secondary mt-8 mb-4"></div>
+    <h3
+      class="text-secondary text-base font-medium"
+      data-aos="fade-up"
+      data-aos-duration="1500"
+    >
+      <span class="font-bold">Fund Development</span>
+      <span>materials</span>
+    </h3>
     <ul
       class="mx-auto grid grid-cols-1 sm:grid-cols-2 text-secondary md:grid-cols-3 lg:grid-cols-4 items-start gap-6 mt-16"
       role="list"
     >
       {
-        otherprojects.map((project, index) => (
-          <li
-            class="flow-root h-full"
-            data-aos="fade-up"
-            data-aos-duration={calculateAosDuration(index % 4)}
-          >
-            <a href={project.url}>
-              <div class="h-full flex flex-col justify-between">
-                <div>
-                  <img class="lg:mb-8 xl:mb-0 lg:pb-8" src={project.photo} />
-                  <p class="italic shrink-0">{project.title}</p>
-                  <p class="text-base mt-3 leading-relaxed">
-                    {project.description}
-                  </p>
+        fundDevelopmentProjects
+          .sort((a: project, b: project) => {
+            return b.date.getTime() - a.date.getTime();
+          })
+          .map((project, index) => (
+            <li
+              class="flow-root h-full"
+              data-aos="fade-up"
+              data-aos-duration={calculateAosDuration(index % 4)}
+            >
+              <a href={project.url}>
+                <div class="h-full flex flex-col justify-between">
+                  <div>
+                    <img class="lg:mb-8 xl:mb-0 lg:pb-8" src={project.photo} />
+                    <p class="italic shrink-0">{project.title}</p>
+                    <p class="text-base mt-3 leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+                  <div>
+                    <p class="mt-3 text-base font-semibold">
+                      Learn more &nbsp; ↗
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p class="mt-3 text-base font-semibold">
-                    Learn more &nbsp; ↗
-                  </p>
-                </div>
-              </div>
-            </a>
-          </li>
-        ))
+              </a>
+            </li>
+          ))
       }
     </ul>
   </div>
